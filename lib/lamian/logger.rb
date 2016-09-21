@@ -12,7 +12,7 @@ module Lamian
       self.level = 0
       self.logdevs = []
       self.formatter = Lamian.config.formatter
-    endgi
+    end
 
     def run
       push_logdev(StringIO.new)
