@@ -2,10 +2,12 @@
 
 module Lamian
   autoload :VERSION, 'lamian/version'
-
   autoload :Config, 'lamian/config'
   autoload :Logger, 'lamian/logger'
   autoload :LoggerExtension, 'lamian/logger_extension'
+  autoload :Middleware, 'lamian/middleware'
+
+  require 'lamian/engine'
 
   class << self
     def configure
@@ -31,8 +33,8 @@ module Lamian
       logger.reset
     end
 
-    def dump(&block)
-      logger.dump(&block)
+    def dump(*args, &block)
+      logger.dump(*args, &block)
     end
 
     def stop

@@ -27,8 +27,9 @@ module Lamian
       self.logdev = StringIO.new
     end
 
-    def dump
-      block_given? ? run_with_separate_logdev { yield } : logdev.string.dup
+    def dump(format: nil)
+      result = block_given? ? run_with_separate_logdev { yield } : logdev.string.dup
+      format ? prepare_output(format, result) : result
     end
 
     def stop
@@ -43,6 +44,11 @@ module Lamian
     end
 
     private
+
+    def prepare_output(_format, text)
+      text.gsub!(/\[\d{1,2}m/, '')
+      text
+    end
 
     attr_accessor :running, :logdev, :level, :formatter
     alias running? running
