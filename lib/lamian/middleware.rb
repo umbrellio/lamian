@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Lamian
   class Middleware
     def initialize(app)
@@ -5,9 +6,7 @@ module Lamian
     end
 
     def call(env)
-      result = []
-      Lamian.start { result = app.call(env) }
-      result
+      Lamian.run { app.call(env) }
     end
 
     private
