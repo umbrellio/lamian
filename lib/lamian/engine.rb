@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'rails'
 require 'exception_notification'
 require 'exception_notification/rails'

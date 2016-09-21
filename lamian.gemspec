@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
 
   spec.files         = Dir['lib/**/*']
   spec.require_paths = ['lib']
-  
+
   spec.add_dependency 'rails', '~> 4.2'
   spec.add_dependency 'exception_notification'
 
@@ -26,4 +26,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rubocop', '~> 0.41'
   spec.add_development_dependency 'pry', '~> 0.10'
+  spec.add_development_dependency 'coveralls', '~> 0.8'
 end

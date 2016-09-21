@@ -8,60 +8,50 @@ module Lamian
       Thread.current[:__lamian_logger] ||= new
     end
 
-    def initialize(running = false)
-      self.running = running
+    def initialize
       self.level = 0
-      reset
+      self.logdevs = []
+      self.formatter = Lamian.config.formatter
     end
 
-    def start
-      if block_given?
-        run_with_separate_logdev { yield }
-      else
-        reset
-        self.running = true
-      end
+    def run
+      push_logdev(StringIO.new)
+      yield
+    ensure
+      pop_logdev
     end
 
-    def reset
-      self.logdev = StringIO.new
+    def add(*args, &block)
+      each_logdev { super(*args, &block) }
     end
 
     def dump(format: nil)
-      result = block_given? ? run_with_separate_logdev { yield } : logdev.string.dup
-      format ? prepare_output(format, result) : result
-    end
-
-    def stop
-      self.running = false
-      dump
-    end
-
-    def add(*)
-      return unless running?
-      self.formatter = Lamian.config.formatter
-      super
+      result = logdevs[-1].string.dup
+      formatter ? apply_format(format, result) : result
     end
 
     private
 
-    def prepare_output(_format, text)
-      text.gsub!(/\[\d{1,2}m/, '')
-      text
+    attr_accessor :level, :logdevs, :formatter
+
+    def apply_format(_format, result)
+      result.gsub!(/\[\d{1,2}m/)
+      result
     end
 
-    attr_accessor :running, :logdev, :level, :formatter
-    alias running? running
+    def push_logdev(logdev)
+      logdevs << logdev
+    end
 
-    def run_with_separate_logdev
-      old_logdev = logdev
-      old_running = running?
-      start
-      yield
-      stop
-    ensure
-      self.logdev = old_logdev
-      self.running = old_running
+    def pop_logdev
+      logdevs.pop
+    end
+
+    def each_logdev
+      logdevs.each do |logdev|
+        @logdev = logdev
+        yield
+      end
     end
   end
 end

@@ -25,20 +25,12 @@ module Lamian
       Lamian::Logger.current
     end
 
-    def start(&block)
-      logger.start(&block)
+    def run
+      logger.run { yield }
     end
 
-    def reset
-      logger.reset
-    end
-
-    def dump(*args, &block)
-      logger.dump(*args, &block)
-    end
-
-    def stop
-      logger.stop
+    def dump
+      logger.dump
     end
   end
 end
