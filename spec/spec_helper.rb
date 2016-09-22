@@ -8,7 +8,6 @@ Coveralls.wear!
 
 require 'lamian'
 
-
 shared_context 'cool loggers', :cool_loggers do
   let(:generic_logger_buffer) { StringIO.new }
   let(:generic_logger) { Logger.new(generic_logger_buffer) }
