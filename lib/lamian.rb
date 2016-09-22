@@ -29,8 +29,8 @@ module Lamian
       logger.run { yield }
     end
 
-    def dump
-      logger.dump
+    def dump(format: nil)
+      logger.dump(format: format)
     end
   end
 end

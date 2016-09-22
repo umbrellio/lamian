@@ -27,7 +27,7 @@ module Lamian
 
     def dump(format: nil)
       result = logdevs[-1].string.dup
-      formatter ? apply_format(format, result) : result
+      format ? apply_format(format, result) : result
     end
 
     private
@@ -35,7 +35,7 @@ module Lamian
     attr_accessor :level, :logdevs, :formatter
 
     def apply_format(_format, result)
-      result.gsub!(/\[\d{1,2}m/)
+      result.gsub!(/\[\d{1,2}m/, '')
       result
     end
 
