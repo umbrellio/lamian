@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 require 'bundler/setup'
-require 'lamian'
 require 'logger'
 require 'pry'
-require 'coveralls'
 
+require 'coveralls'
 Coveralls.wear!
+
+require 'lamian'
 
 shared_context 'cool loggers', :cool_loggers do
   let(:generic_logger_buffer) { StringIO.new }
