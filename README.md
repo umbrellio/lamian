@@ -17,13 +17,13 @@ aplications
 
 ## Extended Usage
 
-Add a 'Request Log' section into ExceptionNotification's background section.
+Add a 'request_log' section into ExceptionNotification's background section.
 Add `Lamian.run { }` around code with logs you want to collect. Note, that
 logs would be accessible only inside this section and removed after section end.
 
 ## Contribution
 
-Feel free to contribute by making PRs and Issues on (GitHub)[https://github.com/JelF/lamian]
+Feel free to contribute by making PRs and Issues on [GitHub](https://github.com/JelF/lamian)
 You also can contact me using my email begdory4+lamian@gmail.com
 
 ## TODO
