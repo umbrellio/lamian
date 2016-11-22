@@ -1,13 +1,6 @@
 # frozen_string_literal: true
-describe Lamian::Logger, :cool_loggers do
-  specify '#run' do
-    Lamian.run do
-      generic_logger.info "it's alive"
-      expect(Lamian.dump).to eq "it's alive\n"
-    end
-  end
-
-  describe '#dump' do
+describe Lamian::Logger do
+  describe '#dump', :cool_loggers do
     specify 'with #run' do
       Lamian.run do
         generic_logger.info "it's alive"
