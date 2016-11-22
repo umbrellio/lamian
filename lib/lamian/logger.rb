@@ -26,17 +26,19 @@ module Lamian
     end
 
     def dump(format: nil)
-      result = logdevs[-1].string.dup
-      format ? apply_format(format, result) : result
+      result = logdevs[-1]&.string&.dup
+      apply_format!(format, result)
+      result
     end
 
     private
 
     attr_accessor :level, :logdevs, :formatter
 
-    def apply_format(_format, result)
+    def apply_format!(format, result)
+      return unless format
+      return unless result
       result.gsub!(/\[\d{1,2}m/, '')
-      result
     end
 
     def push_logdev(logdev)

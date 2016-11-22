@@ -13,7 +13,7 @@ shared_context 'cool loggers', :cool_loggers do
   let(:generic_logger) { Logger.new(generic_logger_buffer) }
 
   let(:cool_formatter) do
-    -> (_severity, _date, _progname, message) { "#{message}\n" }
+    ->(_severity, _date, _progname, message) { "#{message}\n" }
   end
 
   before('extend generic_logger') { Lamian.extend_logger(generic_logger) }
