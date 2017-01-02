@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 module Lamian
-  VERSION = '0.3.3'
+  VERSION = '1.0.0alpha'
 end
