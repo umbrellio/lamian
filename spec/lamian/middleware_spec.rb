@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 describe Lamian::Middleware do
   let(:app) { double(:app) }
   let(:env) { double(:env) }

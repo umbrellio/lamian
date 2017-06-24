@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'bundler/gem_tasks'
 require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
@@ -14,7 +15,7 @@ RuboCop::RakeTask.new(:lint)
 
 YARD::Rake::YardocTask.new(:doc) do |t|
   t.files = Dir[ROOT.join('lib/**/*.rb')]
-  t.options = %w(--private)
+  t.options = %w[--private]
 end
 
 def open_in_browser(path)
@@ -45,4 +46,4 @@ namespace :doc do
   end
 end
 
-task default: %i(lint doc:coverage spec)
+task default: %i[lint doc:coverage spec]
