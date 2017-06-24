@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 describe Lamian::Logger do
   describe '#dump', :cool_loggers do
     specify 'with #run' do
