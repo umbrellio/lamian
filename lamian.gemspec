@@ -29,4 +29,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'coveralls', '~> 0.8'
   spec.add_development_dependency 'yard', '~> 0.9'
   spec.add_development_dependency 'launchy', '~> 2.4.3'
+  spec.add_development_dependency 'json', '>= 2.1.0'
 end

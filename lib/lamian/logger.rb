@@ -59,7 +59,11 @@ module Lamian
     attr_accessor :level, :logdevs, :formatter
 
     # Formats string using given format
-    # @param format [Symbol] request format, e.g. :text, :html
+    # @todo create `formatters` interface to allow real format selection
+    # @note
+    #   `format` is now checked only for thruthyness. Please, use
+    #   `:text` format to keep it same after `formatters` interface integration
+    # @param format [Symbol] requested format, e.g. `:text`
     # @param string [String] string to be changed
     # @return avoid return value usage
     def apply_format!(format, string)
