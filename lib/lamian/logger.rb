@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'logger'
+require "logger"
 
 module Lamian
   # @api private
@@ -69,7 +69,7 @@ module Lamian
     def apply_format!(format, string)
       return unless format
       return unless string
-      string.gsub!(/\[\d{1,2}m/, '')
+      string.gsub!(/\[\d{1,2}m/, "")
     end
 
     # Pushes new logdev in the start of #run call
