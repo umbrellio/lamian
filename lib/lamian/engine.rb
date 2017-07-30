@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'rails'
-require 'exception_notification'
-require 'exception_notification/rails'
+require "rails"
+require "exception_notification"
+require "exception_notification/rails"
 
 module Lamian
   # Rails engine, which injects middleware and appends
@@ -12,9 +12,9 @@ module Lamian
   class Engine < ::Rails::Engine
     config.app_middleware.insert_before(
       ExceptionNotification::Rack,
-      ::Lamian::Middleware
+      ::Lamian::Middleware,
     )
 
-    paths['app/views'] << 'lib/lamian/rails_views'
+    paths["app/views"] << "lib/lamian/rails_views"
   end
 end

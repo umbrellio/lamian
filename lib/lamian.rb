@@ -5,13 +5,13 @@
 # It is designed to work in pair with `exception_notification` gem inside
 # rails aplications
 module Lamian
-  autoload :VERSION, 'lamian/version'
-  autoload :Config, 'lamian/config'
-  autoload :Logger, 'lamian/logger'
-  autoload :LoggerExtension, 'lamian/logger_extension'
-  autoload :Middleware, 'lamian/middleware'
+  autoload :VERSION, "lamian/version"
+  autoload :Config, "lamian/config"
+  autoload :Logger, "lamian/logger"
+  autoload :LoggerExtension, "lamian/logger_extension"
+  autoload :Middleware, "lamian/middleware"
 
-  require 'lamian/engine'
+  require "lamian/engine"
 
   class << self
     # Yields curent configuration if block given
