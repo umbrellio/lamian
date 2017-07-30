@@ -28,9 +28,5 @@ You also can contact me using my email begdory4+lamian@gmail.com
 
 ## TODO
 
-- Lamian is now thread-local, but it probably should be available in threads,
-created inside `.run` context
-(`Thread.new` core ext???)
-
 - It probably should be separated to `lamian` and `lamian-rails` gems.
 Rails dependency is never cool
