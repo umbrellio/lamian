@@ -6,7 +6,11 @@ i'll update it here too
 
 ## 1.0.0alpha
 
-Add your changes here
+* 6d8fee8 fixed a bug when ::Logger#log was not prepended
+
+::Logger#log is an alias for ::Logger#add, which
+ruins concept of single entry point :(. Also teed
+it to lamian instance
 
 
 ## 0.3.3
