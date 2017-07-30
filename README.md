@@ -1,5 +1,5 @@
 # Lamian
-[![Coverage Status](https://coveralls.io/repos/github/JelF/lamian/badge.svg)](https://coveralls.io/github/JelF/lamian)[![Build Status](https://travis-ci.org/JelF/lamian.svg?branch=master)](https://travis-ci.org/JelF/lamian)
+[![Coverage Status](https://coveralls.io/repos/github/umbrellio/lamian/badge.svg)](https://coveralls.io/github/umbrellio/lamian)[![Build Status](https://travis-ci.org/umbrellio/lamian.svg?branch=master)](https://travis-ci.org/umbrellio/lamian)
 
 
 Lamian is an in-memory logger, which content could be released for error messages.
