@@ -9,6 +9,10 @@ Coveralls.wear!
 
 require "lamian"
 
+RSpec.configure do |config|
+  config.order = :random
+end
+
 shared_context "cool loggers", :cool_loggers do
   let(:generic_logger_buffer) { StringIO.new }
   let(:generic_logger) { ::Logger.new(generic_logger_buffer) }
