@@ -6,9 +6,9 @@ Lamian is an in-memory logger, which content could be released for error message
 It is designed to work in pair with `exception_notification` gem inside rails
 aplications
 
-## Usage
+## Usage with ExceptionNotification
 
-1. Add `gem 'lamian' '~> 0.3.2'` into your Gemfile
+1. Add `gem 'lamian'` into your Gemfile
 2. Extend `Rails.logger` and any other loggers you want to mirror by
 `Lamian::LoggerExtension`: `Lamian.extend_logger(logger)`
 3. Add 'request_log' section inside your `ExceptionNotification.configure`
@@ -20,6 +20,22 @@ aplications
 Add a 'request_log' section into ExceptionNotification's background section.
 Add `Lamian.run { }` around code with logs you want to collect. Note, that
 logs would be accessible only inside this section and removed after section end.
+
+## Usage with Raven (Sentry)
+Add this line to your Sentry initializer:
+
+```ruby
+Raven::Context.prepend(Lamian::RavenContextExtension)
+```
+
+## Usage with Sidekiq and Raven
+You should add Lamian middleware to the Sidekiq initializer like this:
+
+```ruby
+config.server_middleware do |chain|
+  chain.prepend(Lamian::SidekiqMiddleware)
+end
+```
 
 ## Contribution
 

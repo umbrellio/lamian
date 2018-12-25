@@ -10,10 +10,5 @@ module Lamian
     initializer "lamian.use_rack_middleware" do |app|
       app.config.middleware.unshift(Lamian::Middleware)
     end
-
-    initializer "lamian.patch_raven_context" do
-      return unless defined?(Raven::Context)
-      Raven::Context.prepend(Lamian::RavenContextExtension)
-    end
   end
 end
