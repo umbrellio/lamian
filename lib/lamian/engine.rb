@@ -3,7 +3,8 @@
 require "rails"
 
 module Lamian
-  # See Rails::Engine docs
+  # This engine is automatically loaded by Rails
+  # @see https://edgeguides.rubyonrails.org/engines.html Rails::Engine docs
   class Engine < ::Rails::Engine
     # Lamian views are used in exception_notifier to provide request_log section
     paths["app/views"] << "lib/lamian/rails_views"
