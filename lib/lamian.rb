@@ -6,12 +6,12 @@
 # rails aplications
 module Lamian
   autoload :VERSION, "lamian/version"
-  autoload :ActiveJobExtension, "lamian/active_job_extension"
   autoload :Config, "lamian/config"
   autoload :Logger, "lamian/logger"
   autoload :LoggerExtension, "lamian/logger_extension"
   autoload :Middleware, "lamian/middleware"
-  autoload :RavenEventExtension, "lamian/raven_event_extension"
+  autoload :RavenContextExtension, "lamian/raven_context_extension"
+  autoload :SidekiqMiddleware, "lamian/sidekiq_middleware"
 
   require "lamian/engine"
 

@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   spec.description = "Add logs to your error messages, using exception_notifier or smth like it"
   spec.homepage = "https://github.com/umbrellio/lamian"
 
-  spec.files = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^spec/}) }
+  spec.files = Dir["lib/**/*"]
   spec.require_paths = ["lib"]
 
   spec.add_dependency "rails", ">= 4.2"
