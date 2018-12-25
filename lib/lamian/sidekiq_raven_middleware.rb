@@ -7,7 +7,7 @@ class Lamian::SidekiqRavenMiddleware
     Lamian.run do
       begin
         yield
-      rescue
+      rescue Exception # rubocop:disable Lint/RescueException
         Raven.extra_context(lamian_log: Lamian.dump(format: :txt))
         raise
       end
