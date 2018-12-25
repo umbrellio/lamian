@@ -33,7 +33,7 @@ You should add Lamian middleware to the Sidekiq initializer like this:
 
 ```ruby
 config.server_middleware do |chain|
-  chain.prepend(Lamian::SidekiqMiddleware)
+  chain.prepend(Lamian::SidekiqRavenMiddleware)
 end
 ```
 

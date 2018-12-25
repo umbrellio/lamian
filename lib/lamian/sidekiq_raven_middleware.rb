@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-class Lamian::SidekiqMiddleware
+# Adds current lamian log to the extra part of raven events generated inside sidekiq jobs
+class Lamian::SidekiqRavenMiddleware
   def call(*)
     Lamian.run do
       begin
