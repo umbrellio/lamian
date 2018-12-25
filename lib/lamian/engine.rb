@@ -3,7 +3,8 @@
 require "rails"
 
 module Lamian
-  class Engine < ::Rails::Engine # :nodoc:
+  # See Rails::Engine docs
+  class Engine < ::Rails::Engine
     # Lamian views are used in exception_notifier to provide request_log section
     paths["app/views"] << "lib/lamian/rails_views"
 

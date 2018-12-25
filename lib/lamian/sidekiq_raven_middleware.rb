@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
-# Adds current lamian log to the extra part of raven events generated inside sidekiq jobs
+# A sidekiq middleware
 class Lamian::SidekiqRavenMiddleware
-  def call(*) # :nodoc:
+  # Adds current lamian log to the extra part of raven events generated inside sidekiq jobs
+  def call(*)
     Lamian.run do
       begin
         yield

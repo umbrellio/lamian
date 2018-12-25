@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
-# Adds current lamian log to the extra part of all raven events generated inside Lamian.run block
+# A patch for Raven::Context class
 module Lamian::RavenContextExtension
-  def extra # :nodoc:
+  # Adds current lamian log to the extra part of all raven events generated inside Lamian.run block
+  def extra
     extra = super || {}
     extra[:lamian_log] ||= Lamian.dump(format: :txt)
     extra
