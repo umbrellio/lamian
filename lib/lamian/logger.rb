@@ -7,12 +7,6 @@ module Lamian
   # Provides thread-local loggers to catch teed messages from
   # regular loggers.
   # Uses :__lamian_logger thread variable
-  # @attr level [Int]
-  #   current log level, implicitly set to zero
-  # @attr logdevs [Array(StringIO)]
-  #   stack of log devices used to store logs
-  # @attr formatter [Logger::Formatter]
-  #   formatter, inherited from Lamian.config
   class Logger < ::Logger
     # Provides access to logger bound to curent thread
     # @return [Lamian::Logger] current logger
@@ -23,22 +17,27 @@ module Lamian
     def initialize
       self.level = 0
       self.logdevs = []
-      self.formatter = Lamian.config.formatter
     end
 
     # @see Lamian.run
     # Collects logs sent inside block
     def run
-      push_logdev(StringIO.new)
+      logdevs.push(StringIO.new)
+
       yield
     ensure
-      pop_logdev
+      logdevs.pop
     end
 
     # Part of Logger api, entry point for all logs
     # extened to run on each log device in stack
     def add(*args, &block)
-      each_logdev { super(*args, &block) }
+      @formatter = Lamian.config.formatter
+
+      logdevs.each do |logdev|
+        @logdev = logdev
+        super
+      end
     end
 
     # @see Lamian.dump
@@ -56,7 +55,13 @@ module Lamian
 
     private
 
-    attr_accessor :level, :logdevs, :formatter
+    # @return [Int]
+    #   current log level, implicitly set to zero
+    attr_accessor :level
+
+    # @return [Array(StringIO)]
+    #   stack of log devices used to store logs
+    attr_accessor :logdevs
 
     # Formats string using given format
     # @todo create `formatters` interface to allow real format selection
@@ -70,27 +75,6 @@ module Lamian
       return unless format
       return unless string
       string.gsub!(/\[\d{1,2}m/, "")
-    end
-
-    # Pushes new logdev in the start of #run call
-    # @param logdev [StringIO] new StringIO
-    def push_logdev(logdev)
-      logdevs << logdev
-    end
-
-    # Pops logdev in the end of #run call
-    # @return [StringIO] logdev
-    def pop_logdev
-      logdevs.pop
-    end
-
-    # Runs specific block with all logdevs in stack to
-    # populate them all
-    def each_logdev
-      logdevs.each do |logdev|
-        @logdev = logdev
-        yield
-      end
     end
   end
 end
