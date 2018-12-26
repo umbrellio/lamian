@@ -29,7 +29,7 @@ describe Lamian::RavenContextExtension, :cool_loggers do
   context "outside of Lamian.run block" do
     it "doesn't add lamian log" do
       Raven.capture_message("msg")
-      expect(extra_info["lamian_log"]).to eq(nil)
+      expect(extra_info).not_to have_key("lamian_log")
     end
   end
 end

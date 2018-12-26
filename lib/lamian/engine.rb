@@ -10,7 +10,9 @@ module Lamian
     paths["app/views"] << "lib/lamian/rails_views"
 
     initializer "lamian.use_rack_middleware" do |app|
+      # :nocov:
       app.config.middleware.unshift(Lamian::Middleware)
+      # :nocov:
     end
   end
 end
