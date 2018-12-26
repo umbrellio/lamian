@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Lamian
-  # Provides rack middleware, which allows to colelct request logs
+  # Provides rack middleware, which allows to collect request logs
   # @attr app [Proc] stored application
   class Middleware
     # @param app [Proc] stored application

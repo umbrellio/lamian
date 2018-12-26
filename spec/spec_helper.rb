@@ -9,9 +9,13 @@ Coveralls.wear!
 
 require "lamian"
 
+RSpec.configure do |config|
+  config.order = :random
+end
+
 shared_context "cool loggers", :cool_loggers do
   let(:generic_logger_buffer) { StringIO.new }
-  let(:generic_logger) { Logger.new(generic_logger_buffer) }
+  let(:generic_logger) { ::Logger.new(generic_logger_buffer) }
 
   let(:cool_formatter) do
     -> (_severity, _date, _progname, message) { "#{message}\n" }
@@ -23,8 +27,4 @@ shared_context "cool loggers", :cool_loggers do
     allow(Lamian.config).to receive(:formatter).and_return(cool_formatter)
     generic_logger.formatter = cool_formatter
   end
-end
-
-RSpec.configure do |config|
-  config.order = :random
 end

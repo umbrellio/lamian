@@ -10,6 +10,8 @@ module Lamian
   autoload :Logger, "lamian/logger"
   autoload :LoggerExtension, "lamian/logger_extension"
   autoload :Middleware, "lamian/middleware"
+  autoload :RavenContextExtension, "lamian/raven_context_extension"
+  autoload :SidekiqRavenMiddleware, "lamian/sidekiq_raven_middleware"
 
   require "lamian/engine"
 
