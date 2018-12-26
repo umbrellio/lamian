@@ -8,7 +8,7 @@ class Lamian::SidekiqRavenMiddleware
       begin
         yield
       rescue Exception # rubocop:disable Lint/RescueException
-        Raven.extra_context(lamian_log: Lamian.dump(format: :txt))
+        Raven.extra_context # Just trigger saving of the current log
         raise
       end
     end

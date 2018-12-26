@@ -2,11 +2,10 @@
 
 describe Lamian::SidekiqRavenMiddleware, :cool_loggers do
   it "call Raven.extra_context with proper lamian_log" do
-    expect(Raven).to receive(:extra_context).with(lamian_log: "some log\n")
+    expect(Raven).to receive(:extra_context)
 
     middleware_call = proc do
       Lamian::SidekiqRavenMiddleware.new.call do
-        generic_logger.info "some log"
         raise "some error"
       end
     end
