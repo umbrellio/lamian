@@ -24,3 +24,7 @@ shared_context "cool loggers", :cool_loggers do
     generic_logger.formatter = cool_formatter
   end
 end
+
+RSpec.configure do |config|
+  config.order = :random
+end
