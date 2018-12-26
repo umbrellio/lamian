@@ -24,7 +24,6 @@ shared_context "cool loggers", :cool_loggers do
   before("extend generic_logger") { Lamian.extend_logger(generic_logger) }
 
   before("stub formatter") do
-    Thread.current[:__lamian_logger] = nil
     allow(Lamian.config).to receive(:formatter).and_return(cool_formatter)
     generic_logger.formatter = cool_formatter
   end
