@@ -6,8 +6,6 @@ module Lamian::RavenContextExtension
   # @see https://www.rubydoc.info/gems/sentry-raven/0.9.2/Raven/Context#extra-instance_method
   def extra
     log = Lamian.dump(format: :txt)
-    return super unless log
-    extra = super || {}
-    extra.merge(lamian_log: log)
+    log ? super.merge!(lamian_log: log) : super
   end
 end

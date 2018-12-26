@@ -1,18 +1,8 @@
 # frozen_string_literal: true
 
-require "raven"
-require "raven/transports/dummy"
-
-Raven::Context.prepend(Lamian::RavenContextExtension)
-
-Raven.configure do |config|
-  config.dsn = "dummy://public@example.com/project-id"
-  config.encoding = "json"
-  config.logger = Logger.new(nil)
-end
-
 describe Lamian::RavenContextExtension, :cool_loggers do
   after { sent_events.clear }
+  after { Raven::Context.clear! }
 
   let(:sent_events) { Raven.client.transport.events }
   let(:extra_info) { JSON.parse(sent_events.last[1]).fetch("extra") }

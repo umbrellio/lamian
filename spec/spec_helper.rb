@@ -9,6 +9,8 @@ Coveralls.wear!
 
 require "lamian"
 
+require_relative "support/raven"
+
 RSpec.configure do |config|
   config.order = :random
 end
