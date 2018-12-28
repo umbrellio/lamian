@@ -22,4 +22,17 @@ describe Lamian::RavenContextExtension, :cool_loggers do
       expect(extra_info).not_to have_key("lamian_log")
     end
   end
+
+  context "when sentry_log_size_limit is set" do
+    before { allow(Lamian.config).to receive(:sentry_log_size_limit).and_return(3) }
+
+    it "truncates the log" do
+      Lamian.run do
+        generic_logger.info "some log"
+        Raven.capture_message("msg")
+      end
+
+      expect(extra_info["lamian_log"]).to eq("som")
+    end
+  end
 end
