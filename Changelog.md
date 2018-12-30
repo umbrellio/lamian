@@ -4,6 +4,9 @@ Update this on a pull request, under `Lamian::VERSION`
 (also known as next version). If this constant would be changed without release,
 I'll update it here too
 
+## 1.2.0
+* Add `raven_log_size_limit` config option for limiting amount of data sent to sentry (defaults to `500_000`)
+
 ## 1.1.0
 * Add support for sentry and sidekiq
 

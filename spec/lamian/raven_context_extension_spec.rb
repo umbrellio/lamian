@@ -23,8 +23,8 @@ describe Lamian::RavenContextExtension, :cool_loggers do
     end
   end
 
-  context "when sentry_log_size_limit is set" do
-    before { allow(Lamian.config).to receive(:sentry_log_size_limit).and_return(3) }
+  context "when raven_log_size_limit is set" do
+    before { allow(Lamian.config).to receive(:raven_log_size_limit).and_return(3) }
 
     it "truncates the log" do
       Lamian.run do
