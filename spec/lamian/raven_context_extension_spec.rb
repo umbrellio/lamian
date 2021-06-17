@@ -2,6 +2,7 @@
 
 describe Lamian::RavenContextExtension, :cool_loggers do
   after { sent_events.clear }
+
   after { Raven::Context.clear! }
 
   let(:sent_events) { Raven.client.transport.events }

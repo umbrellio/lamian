@@ -34,7 +34,7 @@ namespace :doc do
     # if not, have this task depend on the docs task.
     YARD::Registry.load
     objs = YARD::Registry.select do |o|
-      puts "pending #{o}" if o.docstring =~ /TODO|FIXME|@pending/
+      puts "pending #{o}" if /TODO|FIXME|@pending/.match?(o.docstring)
       o.docstring.blank?
     end
 

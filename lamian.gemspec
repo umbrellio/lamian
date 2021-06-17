@@ -14,20 +14,24 @@ Gem::Specification.new do |spec|
   spec.summary = "Add logs to your error messages"
   spec.description = "Add logs to your error messages, using exception_notifier or smth like it"
   spec.homepage = "https://github.com/umbrellio/lamian"
+  spec.license = "MIT"
 
-  spec.files = Dir["lib/**/*"]
+  spec.required_ruby_version = Gem::Requirement.new(">= 2.5.0")
+  spec.files = `git ls-files -z`.split("\x0").reject { |f| f.include?("spec") }
   spec.require_paths = ["lib"]
 
   spec.add_dependency "rails", ">= 4.2"
 
-  spec.add_development_dependency "bundler", "~> 1.12"
-  spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rspec", "~> 3.0"
-  spec.add_development_dependency "rubocop-config-umbrellio", "= 0.49.1.4"
-  spec.add_development_dependency "pry", "~> 0.10"
-  spec.add_development_dependency "coveralls", "~> 0.8"
-  spec.add_development_dependency "yard", "~> 0.9"
-  spec.add_development_dependency "launchy", "~> 2.4.3"
-  spec.add_development_dependency "json", ">= 2.1.0"
-  spec.add_development_dependency "sentry-raven", "~> 2.7.4"
+  spec.add_development_dependency "bundler-audit"
+  spec.add_development_dependency "ci-helper"
+  spec.add_development_dependency "launchy"
+  spec.add_development_dependency "pry"
+  spec.add_development_dependency "rake"
+  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "rubocop-config-umbrellio"
+  spec.add_development_dependency "sentry-raven"
+  spec.add_development_dependency "sentry-ruby"
+  spec.add_development_dependency "simplecov"
+  spec.add_development_dependency "simplecov-lcov"
+  spec.add_development_dependency "yard"
 end
