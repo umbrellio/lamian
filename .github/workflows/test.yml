@@ -3,7 +3,7 @@ name: Test
 on: [push, pull_request]
 
 env:
-  COVER: true
+  FULL_COVERAGE_CHECK: true
 
 jobs:
   full-check:
@@ -35,7 +35,7 @@ jobs:
     continue-on-error: ${{ matrix.experimental }}
 
     env:
-      COVER: false
+      FULL_COVERAGE_CHECK: false
 
     # We want to run on external PRs, but not on our own internal PRs as they'll be run on push event
     if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != 'umbrellio/lamian'
