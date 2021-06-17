@@ -15,6 +15,7 @@ module Lamian
     end
 
     def initialize
+      super(nil)
       self.level = 0
       self.logdevs = []
     end

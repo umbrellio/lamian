@@ -1,5 +1,5 @@
 # Lamian
-[![Coverage Status](https://coveralls.io/repos/github/umbrellio/lamian/badge.svg)](https://coveralls.io/github/umbrellio/lamian)[![Build Status](https://travis-ci.org/umbrellio/lamian.svg?branch=master)](https://travis-ci.org/umbrellio/lamian)
+[![Actions Status](https://github.com/umbrellio/lamian/workflows/Test/badge.svg)](https://github.com/umbrellio/lamian/actions) [![Coverage Status](https://coveralls.io/repos/github/umbrellio/lamian/badge.svg?branch=master)](https://coveralls.io/github/umbrellio/lamian?branch=master) [![Gem Version](https://badge.fury.io/rb/lamian.svg)](https://badge.fury.io/rb/lamian)
 
 
 Lamian is an in-memory logger, which content could be released for error messages.

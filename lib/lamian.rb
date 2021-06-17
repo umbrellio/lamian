@@ -45,8 +45,8 @@ module Lamian
     end
 
     # Collects logs sent inside block
-    def run
-      logger.run { yield }
+    def run(&block)
+      logger.run(&block)
     end
 
     # Dumps log collected in this run

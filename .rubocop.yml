@@ -2,7 +2,12 @@ inherit_gem:
   rubocop-config-umbrellio: lib/rubocop.yml
 
 AllCops:
-  Exclude:
-    - bin/**/*
   DisplayCopNames: true
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.5
+
+RSpec/EmptyLineAfterHook:
+  Enabled: false
+
+Style/HashConversion:
+  Exclude:
+    - spec/**/*_spec.rb
