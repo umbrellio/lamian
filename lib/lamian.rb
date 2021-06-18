@@ -12,6 +12,9 @@ module Lamian
   autoload :Middleware, "lamian/middleware"
   autoload :RavenContextExtension, "lamian/raven_context_extension"
   autoload :SidekiqRavenMiddleware, "lamian/sidekiq_raven_middleware"
+  autoload :SidekiqSentryMiddleware, "lamian/sidekiq_sentry_middleware"
+
+  SENTRY_EXTRA_KEY = :lamian_log
 
   require "lamian/engine"
 
@@ -50,13 +53,19 @@ module Lamian
     end
 
     # Dumps log collected in this run
-    # @option format [Symbol]
+    # @param format [Symbol]
     #   requested format of log. At this point, returns raw log if falsey
     #   or log without controll sequences (such as '[23m') if truthy
     #   value given (for now)
     # @return formatted log (String by default)
     def dump(format: nil)
       logger.dump(format: format)
+    end
+
+    # Truncates the collected log to the specified limit and dumps it.
+    # @return [String, nil] truncated formatted log.
+    def dump_limited
+      dump(format: :txt)&.slice(0, Lamian.config.raven_log_size_limit)
     end
   end
 end
