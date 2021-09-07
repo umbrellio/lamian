@@ -21,14 +21,36 @@ Add a 'request_log' section into ExceptionNotification's background section.
 Add `Lamian.run { }` around code with logs you want to collect. Note, that
 logs would be accessible only inside this section and removed after section end.
 
-## Usage with Raven (Sentry)
+## Sentry (sentry-ruby)
+
+### Usage
+
+It automatically redefines `Sentry.configuration.before_send` callback
+if Sentry initialization is completed. If `before_send` is already defined
+it wraps custom callback.
+
+### Usage with Sidekiq
+
+You should add Lamian middleware to the Sidekiq initializer like this:
+
+```ruby
+config.server_middleware do |chain|
+  chain.prepend(Lamian::SidekiqSentryMiddleware)
+end
+```
+
+## Raven (deprecated)
+
+### Usage
+
 Add this line to your Sentry initializer:
 
 ```ruby
 Raven::Context.prepend(Lamian::RavenContextExtension)
 ```
 
-## Usage with Sidekiq and Raven
+### Usage with Sidekiq
+
 You should add Lamian middleware to the Sidekiq initializer like this:
 
 ```ruby
