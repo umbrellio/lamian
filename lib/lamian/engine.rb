@@ -24,6 +24,10 @@ module Lamian
       # :nocov:
     end
 
+    # Reassembles the callback that runs before sending the event to the Sentry:
+    # connects the user callback with the callback that adds lamian logs to the event.
+    # @private
+    # @return [Proc] final callback.
     def rebuild_before_send
       defined_callback = Sentry.configuration.before_send || build_default_lambda
       lamian_callback = build_lamian_callback
@@ -31,10 +35,16 @@ module Lamian
       proc { |*args, **kwargs| lamian_callback.call(defined_callback.call(*args, **kwargs)) }
     end
 
+    # Builds a callback, which does nothing.
+    # @private
+    # @return [Proc] empty callback.
     def build_default_lambda
       -> (event, _hint) { event }
     end
 
+    # Builds a callback that adds logs to the event.
+    # @private
+    # @return [Proc] callback.
     def build_lamian_callback
       lambda do |event|
         event.tap do |event|

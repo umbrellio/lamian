@@ -2,6 +2,7 @@
 
 require "bundler/setup"
 require "pry"
+require "semantic_logger"
 
 require "simplecov"
 require "simplecov-lcov"

@@ -26,6 +26,8 @@ jobs:
         run: bundle exec ci-helper RunSpecs
       - name: Audit
         run: bundle exec ci-helper BundlerAudit
+      - name: Documentation coverage
+        run: bundle exec rake doc:coverage
       - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
