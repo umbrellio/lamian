@@ -29,6 +29,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "rubocop-config-umbrellio"
+  spec.add_development_dependency "semantic_logger"
   spec.add_development_dependency "sentry-raven"
   spec.add_development_dependency "sentry-ruby"
   spec.add_development_dependency "simplecov"

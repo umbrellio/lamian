@@ -13,7 +13,9 @@ module Lamian
   autoload :RavenContextExtension, "lamian/raven_context_extension"
   autoload :SidekiqRavenMiddleware, "lamian/sidekiq_raven_middleware"
   autoload :SidekiqSentryMiddleware, "lamian/sidekiq_sentry_middleware"
+  autoload :SemanticLoggerAppender, "lamian/semantic_logger_appender"
 
+  # The key under which logs are stored in the Sentry extra data.
   SENTRY_EXTRA_KEY = :lamian_log
 
   require "lamian/engine"

@@ -26,13 +26,14 @@ jobs:
         run: bundle exec ci-helper RunSpecs
       - name: Audit
         run: bundle exec ci-helper BundlerAudit
+      - name: Documentation coverage
+        run: bundle exec rake doc:coverage
       - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
   specs:
     runs-on: ubuntu-latest
-    continue-on-error: ${{ matrix.experimental }}
 
     env:
       FULL_COVERAGE_CHECK: false
@@ -44,11 +45,6 @@ jobs:
       fail-fast: false
       matrix:
         ruby: [2.5, 2.6, 2.7]
-        experimental: [false]
-        include:
-          - ruby: head
-            experimental: true
-
 
     steps:
       - uses: actions/checkout@v2

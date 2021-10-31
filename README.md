@@ -39,6 +39,14 @@ config.server_middleware do |chain|
 end
 ```
 
+### Usage with SemanticLogger
+
+You should add Lamian appender to the SematicLogger appenders like this:
+
+```ruby
+SemanticLogger.add_appender(appender: Lamian::SemanticLoggerAppender.new)
+```
+
 ## Raven (deprecated)
 
 ### Usage
