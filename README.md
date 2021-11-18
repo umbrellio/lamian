@@ -49,7 +49,7 @@ SemanticLogger.add_appender(appender: Lamian::SemanticLoggerAppender.new)
 
 ### Patching Sentry Scope
 
-If you want to send events asynchronously, then you need to patch `Sentry::Scope`.
+If you want to send events asynchronously you need to patch `Sentry::Scope`.
 
 ```ruby
 # Somewhere in a initializer.
