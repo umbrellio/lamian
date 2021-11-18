@@ -47,6 +47,16 @@ You should add Lamian appender to the SematicLogger appenders like this:
 SemanticLogger.add_appender(appender: Lamian::SemanticLoggerAppender.new)
 ```
 
+### Patching Sentry Scope
+
+If you want to send events asynchronously you need to patch `Sentry::Scope`.
+
+```ruby
+# Somewhere in a initializer.
+
+Sentry::Scope.prepend(Lamian::SentryScopePatch)
+```
+
 ## Raven (deprecated)
 
 ### Usage
