@@ -16,7 +16,7 @@ describe Lamian::SidekiqSentryMiddleware, :cool_loggers do
 
   it "calls Sentry.set_extras and adds Lamian.run" do
     expect(Sentry.get_current_scope.extra).not_to include(:lamian_log)
-    expect(middleware_call).to raise_error(RuntimeError, "some error")
+    expect(&middleware_call).to raise_error(RuntimeError, "some error")
     expect(Sentry.get_current_scope.extra[:lamian_log]).to eq("some log\n")
   end
 
@@ -25,7 +25,7 @@ describe Lamian::SidekiqSentryMiddleware, :cool_loggers do
 
     it "doesn't set extras" do
       expect(Sentry.get_current_scope.extra).not_to include(:lamian_log)
-      expect(middleware_call).to raise_error(RuntimeError, "some error")
+      expect(&middleware_call).to raise_error(RuntimeError, "some error")
       expect(Sentry.get_current_scope.extra).not_to include(:lamian_log)
     end
   end

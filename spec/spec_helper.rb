@@ -36,6 +36,7 @@ RSpec.configure do |config|
   end
 
   config.disable_monkey_patching!
+  config.raise_errors_for_deprecations!
   config.expose_dsl_globally = true
 
   config.order = :random
