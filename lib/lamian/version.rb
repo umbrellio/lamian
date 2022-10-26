@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Lamian
-  # Current lamian vewrsion
+  # Current lamian version
   #
   # format: 'a.b.c' with possible suffixes such as alpha
   # * a is for major version, it is guaranteed to be changed
@@ -10,8 +10,8 @@ module Lamian
   #   on public API changes and also if private API
   #   back-compatibility is broken
   # * c is for incremental version, it is updated in other cases
-  # According to this, it is enought to specify '~> a.b'
+  # According to this, it is enough to specify '~> a.b'
   # if private API was not used and to specify '~> a.b.c' if it was
 
-  VERSION = "1.6.0"
+  VERSION = "1.7.0"
 end

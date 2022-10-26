@@ -5,15 +5,15 @@ module Lamian
   module LoggerExtension
     # @api stdlib
     # Add is a single entry point for ::Logger.{debug,info,..}
-    def add(*args, &block)
-      Logger.current.add(*args, &block)
+    def add(...)
+      Logger.current.add(...)
       super
     end
 
     # @api stdlib
     # log is an alis for add and should also be prepended
-    def log(*args, &block)
-      Logger.current.add(*args, &block)
+    def log(...)
+      Logger.current.add(...)
       super
     end
   end
