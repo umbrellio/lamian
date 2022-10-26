@@ -17,10 +17,13 @@ module Lamian
 
     config.after_initialize do
       # :nocov:
-      next unless defined?(Sentry)
-      next unless Sentry.initialized?
+      if defined?(Sentry) && Sentry.initialized?
+        Sentry.configuration.before_send = rebuild_before_send
+      end
 
-      Sentry.configuration.before_send = rebuild_before_send
+      if defined?(Sidekiq::ServerMiddleware)
+        Lamian::SidekiqSentryMiddleware.include(Sidekiq::ServerMiddleware)
+      end
       # :nocov:
     end
 
