@@ -3,7 +3,8 @@ inherit_gem:
 
 AllCops:
   DisplayCopNames: true
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 2.7
+  SuggestExtensions: false
 
 RSpec/EmptyLineAfterHook:
   Enabled: false

@@ -10,7 +10,7 @@ describe Lamian::SidekiqRavenMiddleware, :cool_loggers do
     end
 
     expect(Raven.extra_context).not_to have_key(:lamian_log)
-    expect(middleware_call).to raise_error(RuntimeError, "some error")
+    expect(&middleware_call).to raise_error(RuntimeError, "some error")
     expect(Raven.extra_context[:lamian_log]).to eq("some log\n")
   end
 end
