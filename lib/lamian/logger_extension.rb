@@ -11,7 +11,7 @@ module Lamian
     end
 
     # @api stdlib
-    # log is an alis for add and should also be prepended
+    # log is an alias for add and should also be prepended
     def log(...)
       Logger.current.add(...)
       super
