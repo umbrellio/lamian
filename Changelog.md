@@ -5,7 +5,7 @@ Update this on a pull request, under `Lamian::VERSION`
 I'll update it here too
 
 ## 1.8.0
-* Minor dependcy updates;
+* Minor dependency updates;
 
 ## 1.3.0
 * Add support for the (new sentry gem)[https://github.com/getsentry/sentry-ruby].
