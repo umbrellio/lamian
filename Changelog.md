@@ -4,6 +4,9 @@ Update this on a pull request, under `Lamian::VERSION`
 (also known as next version). If this constant would be changed without release,
 I'll update it here too
 
+## 1.8.0
+* Minor dependency updates;
+
 ## 1.3.0
 * Add support for the (new sentry gem)[https://github.com/getsentry/sentry-ruby].
 
