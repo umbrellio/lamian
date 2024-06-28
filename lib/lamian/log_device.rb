@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "logger"
-
 module Lamian
   # @api private
   class LogDevice

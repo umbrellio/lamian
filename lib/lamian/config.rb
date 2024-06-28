@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "logger"
-
 module Lamian
   # General lamian configuration class
   # @attr formatter [Logger::Foramtter]
