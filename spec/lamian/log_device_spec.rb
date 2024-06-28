@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 describe Lamian::LogDevice do
-  subject(:logdev) { described_class.new(10) }
+  subject(:logdev) { described_class.new(5) }
 
   it "saves log" do
     logdev.write("Hello ")
@@ -9,8 +9,8 @@ describe Lamian::LogDevice do
     expect(logdev.string).to eq("Hello world!")
   end
 
-  it "limits log lines" do
-    15.times { logdev.write("hello") }
-    expect(logdev.string.scan(/hello/).size).to eq(10)
+  it "only stores 5 latest log lines" do
+    8.times { |x| logdev.write(x + 1) }
+    expect(logdev.string).to eq("45678")
   end
 end
