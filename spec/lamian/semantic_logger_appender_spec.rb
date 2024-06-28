@@ -9,8 +9,7 @@ describe Lamian::SemanticLoggerAppender, :cool_loggers do
 
   let(:log) do
     instance_double(SemanticLogger::Log).tap do |instance|
-      allow(instance).to receive(:message).and_return("some message")
-      allow(instance).to receive(:level).and_return(log_level)
+      allow(instance).to receive_messages(message: "some message", level: log_level)
     end
   end
   let(:log_level) { :debug }

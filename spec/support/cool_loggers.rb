@@ -2,7 +2,7 @@
 
 shared_context "cool loggers", :cool_loggers do
   let(:generic_logger_buffer) { StringIO.new }
-  let(:generic_logger) { ::Logger.new(generic_logger_buffer) }
+  let(:generic_logger) { Logger.new(generic_logger_buffer) }
 
   let(:cool_formatter) do
     -> (_severity, _date, _progname, message) { "#{message}\n" }

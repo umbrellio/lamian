@@ -23,8 +23,7 @@ module Lamian
     # @see Lamian.run
     # Collects logs sent inside block
     def run
-      logdevs.push(StringIO.new)
-
+      logdevs.push(Lamian::LogDevice.new)
       yield
     ensure
       logdevs.pop
