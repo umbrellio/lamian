@@ -9,6 +9,7 @@ module Lamian
   autoload :Config, "lamian/config"
   autoload :Logger, "lamian/logger"
   autoload :LoggerExtension, "lamian/logger_extension"
+  autoload :LogDevice, "lamian/log_device"
   autoload :Middleware, "lamian/middleware"
   autoload :RavenContextExtension, "lamian/raven_context_extension"
   autoload :SidekiqRavenMiddleware, "lamian/sidekiq_raven_middleware"
