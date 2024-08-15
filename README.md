@@ -29,7 +29,7 @@ It automatically redefines `Sentry.configuration.before_send` callback
 if Sentry initialization is completed. If `before_send` is already defined
 it wraps custom callback.
 
-If you work with rails the `Lamian::Engine` will be automatically required, that additionally
+If you work with rails the `Lamian::Engine` will be automatically initialized, that additionally
 adds `Lamian::Middleware` in the first position in your Rails Application middleware stack.
 
 If you need to manually configure the middleware stack use `Lamian.config.middleware_autoset=false.
