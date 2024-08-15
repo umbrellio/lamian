@@ -11,7 +11,9 @@ module Lamian
 
     initializer "lamian.use_rack_middleware" do |app|
       # :nocov:
-      app.config.middleware.unshift(Lamian::Middleware)
+      if Lamian.config.middleware_autoset
+        app.config.middleware.unshift(Lamian::Middleware)
+      end
       # :nocov:
     end
 
