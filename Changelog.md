@@ -2,6 +2,7 @@
 
 * Add an ability to insert Lamian's middleware inside the rails initialization process manually (`Lamian.config.middleware_autoset = true/false`)
 * Drop EOL rubies from CI;
+* Minimal Ruby version: 3.1;
 
 ## 1.9.0
 

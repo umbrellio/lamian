@@ -26,7 +26,7 @@ end
 
 require "lamian"
 
-Dir[File.join(__dir__, "support/**/*.rb")].sort.each { |x| require(x) }
+Dir[File.join(__dir__, "support/**/*.rb")].each { |x| require(x) }
 
 RSpec.configure do |config|
   config.expect_with(:rspec) { |c| c.syntax = :expect }
