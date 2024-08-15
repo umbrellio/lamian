@@ -14,7 +14,7 @@ module Lamian
     :formatter,
     :max_log_lines,
     :raven_log_size_limit,
-    :middleware_autoset
+    :middleware_autoset,
   ) do
     def initialize
       self.formatter = ::Logger::Formatter.new
