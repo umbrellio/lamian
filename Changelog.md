@@ -1,6 +1,7 @@
 ## 1.10.0
 
 * Add an ability to insert Lamian's middleware inside the rails initialization process manually (`Lamian.config.middleware_autoset = true/false`)
+* Drop EOL rubies from CI;
 
 ## 1.9.0
 
