@@ -31,7 +31,7 @@ module Lamian
 
     # Part of Logger api, entry point for all logs
     # extened to run on each log device in stack
-    def add(*args, &block)
+    def add(*args, &)
       @formatter = Lamian.config.formatter
 
       logdevs.each do |logdev|

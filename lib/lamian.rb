@@ -52,8 +52,8 @@ module Lamian
     end
 
     # Collects logs sent inside block
-    def run(&block)
-      logger.run(&block)
+    def run(&)
+      logger.run(&)
     end
 
     # Dumps log collected in this run
@@ -63,7 +63,7 @@ module Lamian
     #   value given (for now)
     # @return formatted log (String by default)
     def dump(format: nil)
-      logger.dump(format: format)
+      logger.dump(format:)
     end
 
     # Truncates the collected log to the specified limit and dumps it.

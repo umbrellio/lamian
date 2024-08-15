@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
   spec.homepage = "https://github.com/umbrellio/lamian"
   spec.license = "MIT"
 
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.7.0")
+  spec.required_ruby_version = Gem::Requirement.new(">= 3.1.0")
   spec.files = `git ls-files -z`.split("\x0").reject { |f| f.include?("spec") }
   spec.require_paths = ["lib"]
 
