@@ -1,3 +1,7 @@
+## 1.10.0
+
+* Add an ability to insert Lamian's middleware inside the rails initialization process manually (`Lamian.config.middleware_autoset = true/false`)
+
 ## 1.9.0
 
 * Add `max_log_lines` config option to limit number of most recent log lines stored in the log device
