@@ -26,7 +26,8 @@ module Lamian
     def truncate(msg)
       return msg unless msg.size > max_log_length
 
-      suffix = "..."
+      suffix = +"..."
+      suffix << "\n" if msg.end_with?("\n")
       msg = msg[0, max_log_length - suffix.size]
 
       "#{msg}#{suffix}"
