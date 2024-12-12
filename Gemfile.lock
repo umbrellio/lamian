@@ -83,9 +83,6 @@ GEM
     base64 (0.2.0)
     bigdecimal (3.1.8)
     builder (3.3.0)
-    bundler-audit (0.9.1)
-      bundler (>= 1.2.0, < 3)
-      thor (~> 1.0)
     childprocess (5.1.0)
       logger (~> 1.5)
     ci-helper (0.6.0)
@@ -312,7 +309,6 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  bundler-audit
   ci-helper
   lamian!
   launchy
