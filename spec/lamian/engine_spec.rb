@@ -9,7 +9,7 @@ describe Lamian::Engine, :cool_loggers do
         allow(event).to receive(:extra).and_return(extra_hash)
       end
     end
-    let(:extra_hash) { Hash[] }
+    let(:extra_hash) { {} }
 
     let(:callback) { instance.rebuild_before_send }
 
