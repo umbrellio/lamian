@@ -13,5 +13,5 @@ module Lamian
   # According to this, it is enough to specify '~> a.b'
   # if private API was not used and to specify '~> a.b.c' if it was
 
-  VERSION = "1.10.0"
+  VERSION = "1.11.0"
 end
