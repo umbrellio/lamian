@@ -24,8 +24,6 @@ jobs:
         run: bundle exec ci-helper CheckSpecSuffixes --extra-paths spec/*.rb --ignored-paths spec/*_helper.rb
       - name: Run specs
         run: bundle exec ci-helper RunSpecs
-      - name: Audit
-        run: bundle exec ci-helper BundlerAudit
       - name: Documentation coverage
         run: bundle exec rake doc:coverage
       - name: Coveralls

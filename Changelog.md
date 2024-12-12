@@ -1,3 +1,9 @@
+# Changelog
+
+## 1.11.0
+
+* Add `max_log_length` to limit each log line length in order to prevent memory leaks in case of very long logs
+
 ## 1.10.0
 
 * Add an ability to insert Lamian's middleware inside the rails initialization process manually (`Lamian.config.middleware_autoset = true/false`)
@@ -14,7 +20,7 @@
 
 ## 1.3.0
 
-* Add support for the (new sentry gem)[https://github.com/getsentry/sentry-ruby].
+* Add support for the [new sentry gem](https://github.com/getsentry/sentry-ruby).
 
 ## 1.2.0
 
@@ -32,7 +38,6 @@ which ruins concept of single entry point :(. Also tied it to lamian instance
 ## 0.3.3
 
 * `8136689` fixed crashes when dump used outside lamian context
-
 
 ## 0.3.2
 
