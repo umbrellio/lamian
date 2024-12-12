@@ -13,12 +13,14 @@ module Lamian
   Config = Struct.new(
     :formatter,
     :max_log_lines,
+    :max_log_length,
     :raven_log_size_limit,
     :middleware_autoset,
   ) do
     def initialize
       self.formatter = ::Logger::Formatter.new
       self.max_log_lines = 5000
+      self.max_log_length = 10_000
       self.raven_log_size_limit = 500_000
       self.middleware_autoset = true
     end

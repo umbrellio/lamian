@@ -2,14 +2,16 @@
 
 module Lamian
   class LogDevice # :nodoc:
-    def initialize(size = Lamian.config.max_log_lines)
-      self.size = size
+    def initialize(max_log_lines: Lamian.config.max_log_lines,
+                   max_log_length: Lamian.config.max_log_length)
+      self.max_log_lines = max_log_lines
+      self.max_log_length = max_log_length
       self.lines = []
     end
 
-    def write(string) # :nodoc:
-      lines << string
-      lines.shift if lines.size > size
+    def write(msg) # :nodoc:
+      lines << truncate(msg)
+      lines.shift if lines.size > max_log_lines
       true
     end
 
@@ -19,6 +21,15 @@ module Lamian
 
     private
 
-    attr_accessor :size, :lines
+    attr_accessor :lines, :max_log_lines, :max_log_length
+
+    def truncate(msg)
+      return msg unless msg.size > max_log_length
+
+      suffix = "..."
+      msg = msg[0, max_log_length - suffix.size]
+
+      "#{msg}#{suffix}"
+    end
   end
 end
