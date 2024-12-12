@@ -23,7 +23,7 @@ module Lamian
 
     attr_accessor :lines, :max_log_lines, :max_log_length
 
-    def truncate(msg)
+    def truncate(msg) # :nodoc:
       return msg unless msg.size > max_log_length
 
       suffix = +"..."
